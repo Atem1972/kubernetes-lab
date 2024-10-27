@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  # namespace: dev
+  name: utc-app
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: nginx
+  template:
+    metadata:
+      labels:
+        app: nginx
+    spec:
+      containers:
+      - name: nginx-container
+        image: nginx:latest
+        resources:    # Sets resource limits and requests for the container (guaranteed, burstable, besteffort   )
+          limits: 
+            memory: "150Mi"
+            cpu: "400m"
+          requests:
+            memory: "150Mi"
+            cpu: "400m"
+   
+          
