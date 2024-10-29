@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: nginx-container
-        image: nginx:latest
+        image: nginx:latest # we can use any image ie ksege2001/pod-host
         resources:    # Sets resource limits and requests for the container (guaranteed, burstable, besteffort   )
           limits: 
             memory: "150Mi"
