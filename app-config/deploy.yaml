@@ -6,6 +6,7 @@ metadata:
 spec:
   replicas: 3
   selector:
+    # namespace: dev
     matchLabels:
       app: nginx
   template:
