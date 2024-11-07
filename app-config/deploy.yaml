@@ -1,29 +1,31 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  # namespace: dev
   name: utc-app
 spec:
   replicas: 4
   selector:
     matchLabels:
       app: nginx
-      env: Dev  # this mean if somebody put this then he can select all the replicas to pods
+      env: Dev  # This will allow selection of all pods with these labels (nginx, Dev)
   template:
     metadata:
       labels:
         app: nginx
-        env: Dev
+        env: Dev  # This will assign these labels to the pods created by the deployment
     spec:
       containers:
-      - name: nginx-container
-        image: nginx:latest # we can use any image ie httpd or  ksege2001/pod-host or from our ECR AWS URL: 455452245698.dkr.ecr.us-east-1.amazonaws.com/devops:20
-        resources:    # Sets resource limits and requests for the container (guaranteed, burstable, besteffort   )
-          limits: 
-            memory: "150Mi"
-            cpu: "400m"
-          requests:
-            memory: "150Mi"
-            cpu: "400m"
+        - name: nginx-container
+          image: 455452245698.dkr.ecr.us-east-1.amazonaws.com/devops:20  # Image can be from any registry, here it is ECR / #httpd, nginx, nginx:4.1.0
+          ports:
+            - containerPort: 8082  # Corrected field name (containerPort, not containerport)
+          #resources:
+            #limits:  # Maximum resources the container can consume
+              #memory: "150Mi"
+              #cpu: "400m"
+            #requests:  # Resources requested by the container at startup
+              #memory: "150Mi"
+              #cpu: "400m"
+
    
           
