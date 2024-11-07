@@ -4,14 +4,16 @@ metadata:
   # namespace: dev
   name: utc-app
 spec:
-  replicas: 3
+  replicas: 4
   selector:
     matchLabels:
       app: nginx
+      env: Dev  # this mean if somebody put this then he can select all the replicas to pods
   template:
     metadata:
       labels:
         app: nginx
+        env: Dev
     spec:
       containers:
       - name: nginx-container

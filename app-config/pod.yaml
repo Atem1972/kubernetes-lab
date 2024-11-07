@@ -5,6 +5,7 @@ metadata:
   name: my-app
   labels:
     app: my-app
+    env: Dev
 spec:
   containers:
   - name: my-app
