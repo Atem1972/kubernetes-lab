@@ -5,7 +5,8 @@ metadata:
 spec:
   type: LoadBalancer  # this will go and creat LB on our aws through the cloud control manager so that we can access our appli on e internet
   selector:
-    app: nginx  #this most be same as it is in deploy      # Ensure this label matches the app label on the target pod(s)
+    APP: nginx #this most be same as it is in deploy      # Ensure this label matches the app label on the target pod(s)
+    env: Dev
   ports:
     - name: utrains-service-port
       protocol: TCP    # Protocol names are uppercase
