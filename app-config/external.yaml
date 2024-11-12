@@ -1,0 +1,7 @@
+apiversion: vi
+kind: service
+metadata:
+name: utc-service
+spec:
+type: ExternalName
+externalName: dev.djf.sf.org
