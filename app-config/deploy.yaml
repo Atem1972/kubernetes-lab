@@ -16,16 +16,18 @@ spec:
     spec:
       containers:
         - name: nginx-container
-          image: 455452245698.dkr.ecr.us-east-1.amazonaws.com/devops:20  # Image can be from any registry, here it is ECR / #httpd, nginx, nginx:4.1.0
+          image: 455452245698.dkr.ecr.us-east-1.amazonaws.com/devops:20  # Image can be from any registry (e.g., ECR, DockerHub, etc.)
           ports:
             - containerPort: 8082  # Corrected field name (containerPort, not containerport)
-          #resources:
-            #limits:  # Maximum resources the container can consume
-              #memory: "150Mi"
-              #cpu: "400m"
-            #requests:  # Resources requested by the container at startup
-              #memory: "150Mi"
-              #cpu: "400m"
-
-   
-          
+      tolerations:
+        - key: "color"
+          operator: "Equal"
+          value: "green"
+          effect: "NoSchedule"
+      # resources:
+      #   limits:  # Maximum resources the container can consume
+      #     memory: "150Mi"
+      #     cpu: "400m"
+      #   requests:  # Resources requested by the container at startup
+      #     memory: "150Mi"
+      #     cpu: "400m"

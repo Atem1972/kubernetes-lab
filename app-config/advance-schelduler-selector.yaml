@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: grace
+ # namespace: dev  # Corrected indentation for 'namespace'
+  labels:
+    app: utrains5
+spec:
+  nodeSelector:
+    size: small
+    env: dev  # Corrected indentation for 'nodeSelector'
+  containers:
+    - name: utrains-app  # Proper indentation for 'name' under 'containers'
+      image: httpd      # Proper indentation for 'image'

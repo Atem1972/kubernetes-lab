@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: wordpress-service
+  namespace: wordpress
+spec:
+  type: LoadBalancer
+  selector:
+    app: wordpress  # This should match the label of the pods in your wordpress deployment
+  ports:
+    - protocol: TCP   # Corrected spelling of 'protocol'
+      port: 80        # The port exposed by the service
+      targetPort: 80  # The port on the container to forward traffic to
+ # type: ClusterIP     # Optional, specify the service type (ClusterIP is default)
+
