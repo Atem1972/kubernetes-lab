@@ -4,7 +4,9 @@ metadata:
   name: utrain-service
 spec:
   type: LoadBalancer  # this will go and creat LB on our aws through the cloud control manager so that we can access our appli on e internet
+  or type: Nodeport
   selector:
+  
     APP: nginx #this most be same as it is in deploy      # Ensure this label matches the app label on the target pod(s)
     env: Dev
   ports:
@@ -12,3 +14,4 @@ spec:
       protocol: TCP    # Protocol names are uppercase
       port: 80         # Port exposed by the service
       targetPort: 8082   # Port on the pod to route traffic to
+      #nodeport: 30001    # k8s port is bw 30001-32767 
