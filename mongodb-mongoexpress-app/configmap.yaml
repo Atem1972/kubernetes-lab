@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  namespace: mongo
+  name: mongo-express
+data:
+  data_host: mongo-service
+  mon_init_db: admin
