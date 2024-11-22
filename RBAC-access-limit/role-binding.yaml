@@ -1,0 +1,15 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: dev-role-binding      # Name of the RoleBinding
+  namespace: dev              # The namespace where the RoleBinding is created
+
+subjects:
+- kind: ServiceAccount        # We're binding to a ServiceAccount
+  name: dev-sa                # Name of the ServiceAccount being granted the permissions
+  namespace: dev              # Namespace where the ServiceAccount is located
+
+roleRef:
+  kind: Role                  # Type of the role (in this case, a Role within the same namespace)
+  name: dev-role              # Name of the Role being referenced
+  apiGroup: rbac.authorization.k8s.io  # API group for Role-based access control

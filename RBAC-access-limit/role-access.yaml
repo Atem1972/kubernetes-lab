@@ -1,0 +1,9 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind:  Role
+metadata:
+  name: dev-role
+  namespace: dev
+rules:
+- apiGroups: [""]
+  resources: ["pods","namespaces"]  # this are the sevices valery has access to get, list and create but we can add more for him
+  verbs: ["get", "list", "create", "delete"]
